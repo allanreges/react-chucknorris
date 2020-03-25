@@ -1,4 +1,4 @@
-SUPER CHUCK NORRIS JOKES!
+<h1>SUPER CHUCK NORRIS JOKES!</h1>
 
 Esse é um projeto feito em React Hooks usando Redux, a ideia é criar algo simples que possua a capacidade de ser facilmente ampliado no futuro
 
