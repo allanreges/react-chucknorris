@@ -7,7 +7,7 @@ function ListItem({ data }) {
     }
 
     return (
-        <LinkTo to="/category"><Item onClick={handleClick}>{data}</Item></LinkTo>
+        <LinkTo to="/react-chucknorris/category"><Item onClick={handleClick}>{data}</Item></LinkTo>
     );
 }
 

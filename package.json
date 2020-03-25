@@ -2,6 +2,7 @@
   "name": "chuck",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://allanreges.github.io/react-chucknorris/",
   "dependencies": {
     "@material-ui/core": "^4.9.7",
     "@reduxjs/toolkit": "^1.1.0",
@@ -19,6 +20,7 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
+    "deploy": "yarn run build && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,6 +43,7 @@
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^3.1.2",
+    "gh-pages": "^2.2.0",
     "prettier": "2.0.2",
     "reactotron-react-js": "^3.3.7",
     "reactotron-redux": "^3.1.2"

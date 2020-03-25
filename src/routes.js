@@ -10,8 +10,8 @@ export default function Routes() {
         <>
             <Header />
             <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/category" component={Category} />
+                <Route path="/react-chucknorris" exact component={Home} />
+                <Route path="/react-chucknorris/category" component={Category} />
             </Switch>
         </>
     )
