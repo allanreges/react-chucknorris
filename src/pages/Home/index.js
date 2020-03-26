@@ -1,39 +1,38 @@
-import React, { useEffect } from 'react';
-import { Title, Container, List } from './styles';
+import React, { useEffect, useState } from 'react';
+import { Container, List } from './styles';
+import { Title } from '../../components/Title/styles'
 import { useSelector, useDispatch } from 'react-redux';
-import api from '../../services/api';
 import * as ListActions from "../../store/list/actions";
-import ListItem from '../../components/ListItem'
+import { Loader } from '../../components/Loader/styles';
+import ListItem from '../../components/ListItem';
 
 export default function Home() {
+    const list = useSelector(state => state.listItems);
+    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        handleData()
-    }, [])
+        handleData();
+    }, [list]);
 
-    const listItems = useSelector(state => state.list.flat(1))
-
-    const dispatch = useDispatch()
-
-    async function handleData() {
-        if (listItems.length > 0) {
+    function handleData() {
+        if (list.length > 0) {
+            setLoading(false);
             return
-        }
-        const response = await api.get('categories')
-        if (response.status === 200) {
-            dispatch(ListActions.updateList(response.data))
-        }
-    }
-
+        };
+        dispatch(ListActions.updateListRequest());
+    };
 
     return (
         <Container>
             <Title>Hey Pal, this is a list with my best jokes, I hope you enjoy</Title>
-            <List>
-                {listItems && listItems.map((category, index) => (
-                    <ListItem data={category} key={index} />
-                ))}
-            </List>
+            {loading ? <Loader size={50} /> : (
+                <List>
+                    {list && list.map((category, index) => (
+                        <ListItem data={category} key={index} />
+                    ))}
+                </List>
+            )}
         </Container>
     );
 }

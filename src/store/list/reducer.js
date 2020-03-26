@@ -1,16 +1,12 @@
 
-import produce from 'immer'
-
 function reducer(state = [], action) {
     switch (action.type) {
-        case "UPDATE_LIST":
-            return produce(state, draft => {
-                const { list } = action
-                draft.push(list)
-            })
+        case "UPDATE_LIST_SUCCESS":
+            const { list } = action
+            return list;
         default:
-            return state
-    }
-}
+            return state;
+    };
+};
 
 export default reducer;
